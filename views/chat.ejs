@@ -1,0 +1,18 @@
+<%- include('./partials/head.ejs'); %> <%- include('./partials/header.ejs'); %>
+
+<section>
+  <div class="content-box">
+    <h2 id="username">NN</h2>
+    <hr />
+    <form>
+      <input id="msn" name="msn" />
+      <button id="send">Enviar</button>
+    </form>
+    <div id="chat"></div>
+  </div>
+</section>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/public/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<%- include('./partials/head.ejs'); %> <%- include('./partials/header.ejs'); %>
+
+<section>
+  <div class="content-box">
+    <h1>Lista de Productos</h1>
+    <% if (listExists) { %>
+    <ul class="products">
+      <% products.forEach(function(el){ %>
+      <li class="products__item">
+        <h2><%= el.title %></h2>
+        <p>Price : $<%= el.price %></p>
+        <img src="<%= el.thumbnail %>" />
+      </li>
+      <% }) %>
+    </ul>
+    <% } else { %>
+    <h2>No hay Productos</h2>
+    <% } %>
+  </div>
+</section>
+
+<%- include('./partials/footer.ejs'); %>
