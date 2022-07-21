@@ -20,18 +20,22 @@ class Contenedor {
         const idn = parseInt(Math.max(...ids) + 1);
         console.log(idn);
         objeto = { ...objeto, id: idn };
+
         data.push(objeto);
         data = JSON.stringify(data);
 
         fs.writeFileSync(`./data/${this.nombre}`, data, "utf-8");
 
         console.log("si existe");
+
         return objeto;
       } else {
         objeto = { ...objeto, id: this.id };
+        io.socket.emit("new", objeto);
         objeto = JSON.stringify(Array(objeto));
         fs.writeFileSync(`./data/${this.nombre}`, objeto, "utf-8");
         console.log("el archivo se creo");
+
         return objeto;
       }
     } catch (error) {
