@@ -49,15 +49,16 @@ routerProduct.post("/", upload.single("myFile"), (req, res, next) => {
   };
   const objetoCreado = data.save(item);
 
-  //   if (Object.keys(objetoCreado).includes("id")) {
-  //     // console.log("creado");
-  //     // res.status(200);
-  //     res.redirect("/");
-  //     //res.send(objetoCreado);
-  //   } else {
-  //     res.status(400);
-  //     res.send("No se guardo la información");
-  //   }
+  if (Object.keys(objetoCreado).includes("id")) {
+    //next();
+    // console.log("creado");
+    // res.status(200);
+    res.redirect("/");
+    //res.send(objetoCreado);
+  } else {
+    res.status(400);
+    res.send("No se guardo la información");
+  }
 });
 
 //PUT

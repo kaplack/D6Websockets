@@ -53,8 +53,13 @@ io.on("connection", (socket) => {
 
   socket.on("post", () => {
     console.log("recibido");
-
-    io.sockets.emit("newItem");
+    function itemPost() {
+      const data = test1.getById(test1.getLastId());
+      console.log(data[0]);
+      io.sockets.emit("newItem", data[0]);
+    }
+    setTimeout(itemPost, 1000);
+    //io.sockets.emit("newItem", { title: "hola" });
   });
 });
 

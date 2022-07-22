@@ -34,7 +34,7 @@ socket.on("chat-out", (data) => {
 
 socket.on("newItem", (data) => {
   const producto = document.getElementById("productList");
-  console.log(data);
+  console.log("nvio: ", data);
   const item = `<li class="products__item" id="new">
   <h2> ${data.title} </h2>
   <p>Price : ${data.price}</p>

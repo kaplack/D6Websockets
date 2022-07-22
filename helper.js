@@ -96,6 +96,18 @@ class Contenedor {
     }
   }
 
+  getLastId() {
+    try {
+      let data = fs.readFileSync(`./data/${this.nombre}`, "utf-8");
+      data = JSON.parse(data);
+      let idData = data.map((item) => item.id);
+      let lastValue = Math.max(...idData);
+      return lastValue;
+    } catch {
+      console.log("hay un problema");
+    }
+  }
+
   deleteById(Number) {
     try {
       let data = fs.readFileSync(`./data/${this.nombre}`, "utf-8");
